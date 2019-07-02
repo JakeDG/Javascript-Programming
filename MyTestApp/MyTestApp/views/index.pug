@@ -1,0 +1,35 @@
+﻿extends layout
+
+block content
+    h1= title
+    p Welcome to #{title}
+    script.
+        var f1 = function() { document.getElementById('myImage').src='#{data.item1}' }
+    script.
+        var f2 = function() { document.getElementById('myImage').src='#{data.item2}' }
+    script.
+        var f3 = function() { document.getElementById('myImage').src='#{data.item3}' }
+    script.
+        var f4 = function () {
+            var min = 1
+            var max = 10
+            var num = (Math.random() * (+max - +min)) + +min; 
+    
+            document.getElementById("output1").value = num.toFixed(2);
+        }
+            
+    button(onclick='f1()') One!
+    button(onclick='f2()') Two!
+    button(onclick='f3()') Three!
+    button(onclick='f4()') Random Number 1
+    button(onclick='getRandomNumber()') Random Number 2
+    p
+    a: img(id='myImage' height='200' width='200' src='')
+    p
+    a(class='button' href='https://www.google.com') Google
+    p <br>
+    p Some output
+    a: textarea(id='output1' rows='2' class='form-control')
+    p <br><br>
+    p Goodbye...
+
